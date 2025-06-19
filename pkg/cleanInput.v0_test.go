@@ -14,7 +14,7 @@ type testCases []struct {
 func TestCleanInput(t *testing.T) {
 	cases := testCases{
 		{
-			"Hello World",
+			"Hello, World",
 			[]string{"Hello", "World"},
 		},
 	}
@@ -26,16 +26,21 @@ func TestCleanInput(t *testing.T) {
 		// NOTE: this is not necessary if you use slices.Equal check
 		if len(returnActual) != len(c.returnExpected) {
 			t.Errorf("cleanInput(%q) = %v, want %v", c.argInput, returnActual, c.returnExpected)
-			fmt.Println()
-			fmt.Println("😡 FAIL")
-			fmt.Println("=======================================================================")
+			t.Errorf("\n")
+			t.Errorf("😡 FAIL\n")
+			t.Errorf("=======================================================================\n")
 		}
 
 		// TEST: WHEN CONTENT DON'T MATCH V1
 		if !slices.Equal(returnActual, c.returnExpected) {
 			t.Errorf("cleanInput(%q) = %v, want %v", c.argInput, returnActual, c.returnExpected)
+			t.Errorf("\n")
+			t.Errorf("😡 FAIL\n")
+			t.Errorf("=======================================================================\n")
+		} else {
+			fmt.Printf("cleanInput(%q) = %v, want %v", c.argInput, returnActual, c.returnExpected)
 			fmt.Println()
-			fmt.Println("😡 FAIL")
+			fmt.Println("🤤 SUCCESS")
 			fmt.Println("=======================================================================")
 		}
 
@@ -45,11 +50,5 @@ func TestCleanInput(t *testing.T) {
 				t.Errorf("cleanInput(%q) = %v, want %v", c.argInput, returnActual, c.returnExpected)
 			}
 		*/
-
-		fmt.Printf("cleanInput(%q) = %v, want %v", c.argInput, returnActual, c.returnExpected)
-		fmt.Println()
-		fmt.Println("🤤 SUCCESS")
-		fmt.Println("=======================================================================")
-
 	}
 }
