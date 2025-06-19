@@ -15,7 +15,59 @@ func TestCleanInput(t *testing.T) {
 	cases := testCases{
 		{
 			"Hello, World",
-			[]string{"Hello", "World"},
+			[]string{"hello", "world"},
+		},
+		{
+			"  Test-Case 123!  ",
+			[]string{"testcase"},
+		},
+		{
+			"It's a won'derful day, isn't it?",
+			[]string{"it's", "a", "won'derful", "day", "isn't", "it"},
+		},
+		{
+			"!@#$",
+			[]string{},
+		},
+		{
+			"12345",
+			[]string{},
+		},
+		{
+			"Déjà-vu 2024",
+			[]string{"déjàvu"},
+		},
+		{
+			"   ",
+			[]string{},
+		},
+		{
+			"'Hello,' said the man.",
+			[]string{"'hello'", "said", "the", "man"},
+		},
+		{
+			"asdf1248",
+			[]string{"asdf"},
+		},
+		{
+			"124*A)(FST's",
+			[]string{"afst's"},
+		},
+		{
+			"Flabébé123!",
+			[]string{"flabébé"},
+		},
+		{
+			"''hello!''",
+			[]string{"''hello''"},
+		},
+		{
+			"Don't stop believin'",
+			[]string{"don't", "stop", "believin'"},
+		},
+		{
+			"They're goin' home.",
+			[]string{"they're", "goin'", "home"},
 		},
 	}
 
@@ -27,7 +79,7 @@ func TestCleanInput(t *testing.T) {
 		if len(returnActual) != len(c.returnExpected) {
 			t.Errorf("cleanInput(%q) = %v, want %v", c.argInput, returnActual, c.returnExpected)
 			t.Errorf("\n")
-			t.Errorf("😡 FAIL\n")
+			t.Errorf("🤬 FAIL\n")
 			t.Errorf("=======================================================================\n")
 		}
 

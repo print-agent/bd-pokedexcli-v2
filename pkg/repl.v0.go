@@ -18,7 +18,7 @@ func REPL() {
 
 		cmdText := cleanInput(scanner.Text())
 
-		// TODO: checker for commands
+		// TODO: checker if text matched defined commands
 
 		fmt.Printf("💀 You typed command: %v\n", cmdText[0])
 	}
