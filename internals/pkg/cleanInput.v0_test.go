@@ -72,7 +72,7 @@ func TestCleanInput(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		returnActual := cleanInput(c.argInput)
+		returnActual := CleanInput(c.argInput)
 
 		// TEST: WHEN LENGTH DON'T MATCH
 		// NOTE: this is not necessary if you use slices.Equal check

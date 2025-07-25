@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/print-agent/bd-pokedexcli-v2/pkg"
+	"github.com/print-agent/bd-pokedexcli-v2/internals"
 )
 
 func main() {
 	// NOTE: Initialize Pokedex
 	fmt.Println("Pokedex CLI ▶️ version 0.0.0 ")
-	pkg.REPL()
+	internals.REPL()
 }

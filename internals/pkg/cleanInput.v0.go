@@ -5,13 +5,12 @@ import (
 	"strings"
 )
 
-func cleanInput(text string) []string {
-	// REMOVE TRAILING SPACES
+func CleanInput(text string) []string {
 	cleanText := strings.TrimSpace(text)
 	if cleanText == "" {
 		return []string{}
 	}
-	// SEPARATE INTO WORDS
+
 	words := strings.Fields(cleanText)
 
 	var cleanWords []string
